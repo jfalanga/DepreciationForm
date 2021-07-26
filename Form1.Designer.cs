@@ -40,13 +40,13 @@ namespace DepreciationForm
             this.DateInventory = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.TxtLifetime = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.TxtEnding = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.TxtStarting = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.TxtTitle = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.LstInventory = new System.Windows.Forms.ListBox();
             this.TabSummary = new System.Windows.Forms.TabPage();
@@ -108,13 +108,13 @@ namespace DepreciationForm
             this.TabInventory.Controls.Add(this.DateInventory);
             this.TabInventory.Controls.Add(this.label7);
             this.TabInventory.Controls.Add(this.label6);
-            this.TabInventory.Controls.Add(this.textBox5);
+            this.TabInventory.Controls.Add(this.TxtLifetime);
             this.TabInventory.Controls.Add(this.label5);
-            this.TabInventory.Controls.Add(this.textBox4);
+            this.TabInventory.Controls.Add(this.TxtEnding);
             this.TabInventory.Controls.Add(this.label4);
-            this.TabInventory.Controls.Add(this.textBox3);
+            this.TabInventory.Controls.Add(this.TxtStarting);
             this.TabInventory.Controls.Add(this.label3);
-            this.TabInventory.Controls.Add(this.textBox2);
+            this.TabInventory.Controls.Add(this.TxtTitle);
             this.TabInventory.Controls.Add(this.label2);
             this.TabInventory.Controls.Add(this.LstInventory);
             this.TabInventory.Location = new System.Drawing.Point(4, 29);
@@ -154,6 +154,7 @@ namespace DepreciationForm
             // 
             // DateInventory
             // 
+            this.DateInventory.Checked = false;
             this.DateInventory.Location = new System.Drawing.Point(229, 185);
             this.DateInventory.Name = "DateInventory";
             this.DateInventory.Size = new System.Drawing.Size(239, 27);
@@ -177,12 +178,12 @@ namespace DepreciationForm
             this.label6.TabIndex = 9;
             this.label6.Text = "Date in inventory:";
             // 
-            // textBox5
+            // TxtLifetime
             // 
-            this.textBox5.Location = new System.Drawing.Point(361, 125);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(111, 27);
-            this.textBox5.TabIndex = 8;
+            this.TxtLifetime.Location = new System.Drawing.Point(361, 125);
+            this.TxtLifetime.Name = "TxtLifetime";
+            this.TxtLifetime.Size = new System.Drawing.Size(111, 27);
+            this.TxtLifetime.TabIndex = 8;
             // 
             // label5
             // 
@@ -193,12 +194,14 @@ namespace DepreciationForm
             this.label5.TabIndex = 7;
             this.label5.Text = "Lifetime (years):";
             // 
-            // textBox4
+            // TxtEnding
             // 
-            this.textBox4.Location = new System.Drawing.Point(361, 92);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(111, 27);
-            this.textBox4.TabIndex = 6;
+            this.TxtEnding.Location = new System.Drawing.Point(361, 92);
+            this.TxtEnding.Name = "TxtEnding";
+            this.TxtEnding.Size = new System.Drawing.Size(111, 27);
+            this.TxtEnding.TabIndex = 6;
+            this.TxtEnding.Text = "0.00";
+            this.TxtEnding.TextChanged += new System.EventHandler(this.DigitTextBox);
             // 
             // label4
             // 
@@ -209,12 +212,14 @@ namespace DepreciationForm
             this.label4.TabIndex = 5;
             this.label4.Text = "End Value $:";
             // 
-            // textBox3
+            // TxtStarting
             // 
-            this.textBox3.Location = new System.Drawing.Point(361, 59);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(111, 27);
-            this.textBox3.TabIndex = 4;
+            this.TxtStarting.Location = new System.Drawing.Point(361, 59);
+            this.TxtStarting.Name = "TxtStarting";
+            this.TxtStarting.Size = new System.Drawing.Size(111, 27);
+            this.TxtStarting.TabIndex = 4;
+            this.TxtStarting.Text = "0.00";
+            this.TxtStarting.TextChanged += new System.EventHandler(this.DigitTextBox);
             // 
             // label3
             // 
@@ -225,12 +230,12 @@ namespace DepreciationForm
             this.label3.TabIndex = 3;
             this.label3.Text = "Starting Value $:";
             // 
-            // textBox2
+            // TxtTitle
             // 
-            this.textBox2.Location = new System.Drawing.Point(361, 26);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(111, 27);
-            this.textBox2.TabIndex = 2;
+            this.TxtTitle.Location = new System.Drawing.Point(361, 26);
+            this.TxtTitle.Name = "TxtTitle";
+            this.TxtTitle.Size = new System.Drawing.Size(111, 27);
+            this.TxtTitle.TabIndex = 2;
             // 
             // label2
             // 
@@ -311,13 +316,13 @@ namespace DepreciationForm
         private System.Windows.Forms.DateTimePicker DateInventory;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox TxtLifetime;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox TxtEnding;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox TxtStarting;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox TxtTitle;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ListBox LstInventory;
         private System.Windows.Forms.TabPage TabSummary;

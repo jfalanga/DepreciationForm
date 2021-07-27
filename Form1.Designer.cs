@@ -34,10 +34,10 @@ namespace DepreciationForm
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.TabInventory = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
+            this.BtnRemove = new System.Windows.Forms.Button();
             this.BtnAdd = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.DateInventory = new System.Windows.Forms.DateTimePicker();
+            this.DateTakingAway = new System.Windows.Forms.DateTimePicker();
+            this.DateAdded = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.TxtLifetime = new System.Windows.Forms.TextBox();
@@ -99,13 +99,15 @@ namespace DepreciationForm
             this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(314, 212);
             this.textBox1.TabIndex = 0;
+            this.textBox1.Text = "Enter your inventory in the Inventory Tab; then you can go to the summary tab to " +
+    "see what it\'s all worth, right here-and-now";
             // 
             // TabInventory
             // 
-            this.TabInventory.Controls.Add(this.button1);
+            this.TabInventory.Controls.Add(this.BtnRemove);
             this.TabInventory.Controls.Add(this.BtnAdd);
-            this.TabInventory.Controls.Add(this.dateTimePicker1);
-            this.TabInventory.Controls.Add(this.DateInventory);
+            this.TabInventory.Controls.Add(this.DateTakingAway);
+            this.TabInventory.Controls.Add(this.DateAdded);
             this.TabInventory.Controls.Add(this.label7);
             this.TabInventory.Controls.Add(this.label6);
             this.TabInventory.Controls.Add(this.TxtLifetime);
@@ -125,15 +127,16 @@ namespace DepreciationForm
             this.TabInventory.Text = "Inventory";
             this.TabInventory.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // BtnRemove
             // 
-            this.button1.AutoSize = true;
-            this.button1.Location = new System.Drawing.Point(44, 277);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(168, 30);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Remove Selected Item";
-            this.button1.UseVisualStyleBackColor = true;
+            this.BtnRemove.AutoSize = true;
+            this.BtnRemove.Location = new System.Drawing.Point(44, 277);
+            this.BtnRemove.Name = "BtnRemove";
+            this.BtnRemove.Size = new System.Drawing.Size(168, 30);
+            this.BtnRemove.TabIndex = 1;
+            this.BtnRemove.Text = "Remove Selected Item";
+            this.BtnRemove.UseVisualStyleBackColor = true;
+            this.BtnRemove.Click += new System.EventHandler(this.button1_Click);
             // 
             // BtnAdd
             // 
@@ -144,21 +147,22 @@ namespace DepreciationForm
             this.BtnAdd.TabIndex = 13;
             this.BtnAdd.Text = "Add Item to Inventory";
             this.BtnAdd.UseVisualStyleBackColor = true;
+            this.BtnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
             // 
-            // dateTimePicker1
+            // DateTakingAway
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(229, 244);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(239, 27);
-            this.dateTimePicker1.TabIndex = 12;
+            this.DateTakingAway.Location = new System.Drawing.Point(229, 244);
+            this.DateTakingAway.Name = "DateTakingAway";
+            this.DateTakingAway.Size = new System.Drawing.Size(239, 27);
+            this.DateTakingAway.TabIndex = 12;
             // 
-            // DateInventory
+            // DateAdded
             // 
-            this.DateInventory.Checked = false;
-            this.DateInventory.Location = new System.Drawing.Point(229, 185);
-            this.DateInventory.Name = "DateInventory";
-            this.DateInventory.Size = new System.Drawing.Size(239, 27);
-            this.DateInventory.TabIndex = 11;
+            this.DateAdded.Checked = false;
+            this.DateAdded.Location = new System.Drawing.Point(229, 185);
+            this.DateAdded.Name = "DateAdded";
+            this.DateAdded.Size = new System.Drawing.Size(239, 27);
+            this.DateAdded.TabIndex = 11;
             // 
             // label7
             // 
@@ -184,6 +188,7 @@ namespace DepreciationForm
             this.TxtLifetime.Name = "TxtLifetime";
             this.TxtLifetime.Size = new System.Drawing.Size(111, 27);
             this.TxtLifetime.TabIndex = 8;
+            this.TxtLifetime.TextChanged += new System.EventHandler(this.TxtLifetime_TextChanged);
             // 
             // label5
             // 
@@ -310,10 +315,10 @@ namespace DepreciationForm
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TabPage TabInventory;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button BtnRemove;
         private System.Windows.Forms.Button BtnAdd;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker DateInventory;
+        private System.Windows.Forms.DateTimePicker DateTakingAway;
+        private System.Windows.Forms.DateTimePicker DateAdded;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox TxtLifetime;

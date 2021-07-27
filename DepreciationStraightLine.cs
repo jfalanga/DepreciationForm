@@ -11,8 +11,9 @@ namespace DepreciationForm
         private DateTime dateAddedToInventory;
         private DateTime dateRemovedFromInventory;
         private decimal endValue;
-        private TimeSpan lifetime;
+        private int lifeTime;
         private decimal startValue;
+        private decimal salvageVal;
 
         public DateTime DateAddedToInventory
         {
@@ -63,15 +64,15 @@ namespace DepreciationForm
             }
         }
 
-        public TimeSpan LifeTime
+        public int LifeTime
         {
             get
             {
-                return lifetime;
+                return lifeTime;
             }
             set
             {
-
+                lifeTime = value;
             }
         }
         
@@ -80,26 +81,14 @@ namespace DepreciationForm
         {
             get
             {
-                return StartValue - Calc();
+                return salvageVal;
+            }
+            protected set
+            {
+                salvageVal = value;
             }
         }
         
-
-        public decimal LifeTimeYears
-        {
-            get
-            {
-                decimal days = ((decimal)LifeTime.Days);
-                decimal d = Decimal.Divide(days, 365M);
-                return d;
-            }
-            set
-            {
-                decimal d = Decimal.Multiply(value, 365M);
-                int ix = (int)Decimal.Round(d);
-                LifeTime = new TimeSpan(ix, 0, 0, 0);
-            }
-        }
         public string Title
         {
             get;set;
@@ -113,22 +102,32 @@ namespace DepreciationForm
             get
             {
                 decimal ix = EndValue - StartValue;
-                decimal d = LifeTimeYears / ix;
+                decimal d = LifeTime / ix;
                 return d;
             }
         }
 
-        public decimal Calc(DateTime timeDate)
+        public void Calc(DateTime timeDate)
         {
             int years = timeDate.Year;
-            years = years - DateAddedToInventory.Year;
+            years -= DateAddedToInventory.Year;
             decimal moneys = Decimal.Multiply((decimal)years, DepricationRate);
-            return moneys;
+            SalvageValue = StartValue - moneys
+                ;
         }
 
-        public decimal Calc()
+        public void Calc()
         {
-            return Calc(DateTime.Now);
+            Calc(DateTime.Now);
+        }
+
+        public override string ToString()
+        {
+            string bean = Title;
+            bean += ". The sarting value is " + StartValue;
+            bean += " and the value at the end of it's Lifetime is " + EndValue;
+            bean += "(& that life time is: " + LifeTime + " years).";
+            return bean;
         }
     }
 }

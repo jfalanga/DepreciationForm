@@ -15,6 +15,7 @@ namespace DepreciationForm
     {
         string textEnd;
         string textBegin;
+        List<DepreciationStraightLine> depreciations=new List<DepreciationStraightLine>();
 
         public Form1()
         {
@@ -54,6 +55,59 @@ namespace DepreciationForm
         private void DateInventory_ValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void BtnAdd_Click(object sender, EventArgs e)
+        {
+            DepreciationStraightLine dep = new DepreciationStraightLine();
+            try
+            {
+                
+                dep.DateAddedToInventory = DateAdded.Value;
+                dep.DateRemovedFromInventory = DateTakingAway.Value;
+                dep.StartValue = Decimal.Parse(TxtStarting.Text);
+
+                if (TxtLifetime.Text == "")
+                {
+                    dep.LifeTime = 0;
+                }
+                else
+                {
+                    dep.LifeTime = Int32.Parse(TxtLifetime.Text);
+                }
+                dep.Title = TxtTitle.Text;
+                dep.EndValue = Decimal.Parse(TxtEnding.Text);
+            } catch (FormatException)
+            {
+                MessageBox.Show("There seems to be something wrong with the data for this entry. Are you sure you entered it right?", "Data Error");
+            } catch (Exception exp)
+            {
+
+                MessageBox.Show("There seems to be a problem: " + exp.Message, "error");
+            }
+            depreciations.Add(dep);
+            LstInventory.DataSource = null;
+            LstInventory.DataSource = depreciations;
+            
+        }
+
+        private void TxtLifetime_TextChanged(object sender, EventArgs e)
+        {
+            if (TxtLifetime.Text == "") return;
+            int ix = new int();
+            if (!Int32.TryParse(TxtLifetime.Text, out ix))
+            {
+                TxtLifetime.Text = "";
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int ix = LstInventory.SelectedIndex;
+            if (depreciations.Count == 0||ix==-1) return;
+            depreciations.RemoveAt(ix);
+            LstInventory.DataSource = null;
+            LstInventory.DataSource = depreciations;
         }
     }
 }

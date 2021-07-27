@@ -108,7 +108,7 @@ namespace DepreciationForm
             get
             {
                 decimal ix = EndValue - StartValue;
-                decimal d = LifeTime / ix;
+                decimal d = ix / LifeTime;
                 return d;
             }
         }

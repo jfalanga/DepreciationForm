@@ -90,6 +90,7 @@ namespace DepreciationForm
             } catch (DivideByZeroException)
             {
                 MessageBox.Show("There needs to be some number greater than 0 in the Life Time box (or, there's some other divide by 0 error", "Divide by 0 Error");
+                return;
             } catch (Exception exp)
             {
 

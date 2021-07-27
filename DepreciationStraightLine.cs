@@ -107,7 +107,7 @@ namespace DepreciationForm
             }
         }
 
-        public void Calc(DateTime timeDate)
+        public virtual void Calc(DateTime timeDate)
         {
             int years = timeDate.Year;
             years -= DateAddedToInventory.Year;
@@ -116,7 +116,7 @@ namespace DepreciationForm
                 ;
         }
 
-        public void Calc()
+        public virtual void Calc()
         {
             Calc(DateTime.Now);
         }

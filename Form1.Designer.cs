@@ -52,6 +52,9 @@ namespace DepreciationForm
             this.TabSummary = new System.Windows.Forms.TabPage();
             this.lblCalcValue = new System.Windows.Forms.Label();
             this.BtnCalcInv = new System.Windows.Forms.Button();
+            this.RadStraight = new System.Windows.Forms.RadioButton();
+            this.RabDble = new System.Windows.Forms.RadioButton();
+            this.label8 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.TabHow2Use.SuspendLayout();
             this.TabInventory.SuspendLayout();
@@ -66,7 +69,7 @@ namespace DepreciationForm
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(486, 389);
+            this.tabControl1.Size = new System.Drawing.Size(486, 418);
             this.tabControl1.TabIndex = 0;
             // 
             // TabHow2Use
@@ -104,6 +107,9 @@ namespace DepreciationForm
             // 
             // TabInventory
             // 
+            this.TabInventory.Controls.Add(this.label8);
+            this.TabInventory.Controls.Add(this.RabDble);
+            this.TabInventory.Controls.Add(this.RadStraight);
             this.TabInventory.Controls.Add(this.BtnRemove);
             this.TabInventory.Controls.Add(this.BtnAdd);
             this.TabInventory.Controls.Add(this.DateTakingAway);
@@ -122,7 +128,7 @@ namespace DepreciationForm
             this.TabInventory.Location = new System.Drawing.Point(4, 29);
             this.TabInventory.Name = "TabInventory";
             this.TabInventory.Padding = new System.Windows.Forms.Padding(3);
-            this.TabInventory.Size = new System.Drawing.Size(478, 356);
+            this.TabInventory.Size = new System.Drawing.Size(478, 385);
             this.TabInventory.TabIndex = 1;
             this.TabInventory.Text = "Inventory";
             this.TabInventory.UseVisualStyleBackColor = true;
@@ -141,7 +147,7 @@ namespace DepreciationForm
             // BtnAdd
             // 
             this.BtnAdd.AutoSize = true;
-            this.BtnAdd.Location = new System.Drawing.Point(262, 277);
+            this.BtnAdd.Location = new System.Drawing.Point(257, 337);
             this.BtnAdd.Name = "BtnAdd";
             this.BtnAdd.Size = new System.Drawing.Size(164, 30);
             this.BtnAdd.TabIndex = 13;
@@ -289,11 +295,42 @@ namespace DepreciationForm
             this.BtnCalcInv.Text = "Calculate Inventory Value";
             this.BtnCalcInv.UseVisualStyleBackColor = true;
             // 
+            // RadStraight
+            // 
+            this.RadStraight.AutoSize = true;
+            this.RadStraight.Checked = true;
+            this.RadStraight.Location = new System.Drawing.Point(234, 312);
+            this.RadStraight.Name = "RadStraight";
+            this.RadStraight.Size = new System.Drawing.Size(113, 24);
+            this.RadStraight.TabIndex = 14;
+            this.RadStraight.TabStop = true;
+            this.RadStraight.Text = "Straight Line";
+            this.RadStraight.UseVisualStyleBackColor = true;
+            // 
+            // RabDble
+            // 
+            this.RabDble.AutoSize = true;
+            this.RabDble.Location = new System.Drawing.Point(357, 312);
+            this.RabDble.Name = "RabDble";
+            this.RabDble.Size = new System.Drawing.Size(79, 24);
+            this.RabDble.TabIndex = 15;
+            this.RabDble.Text = "Double";
+            this.RabDble.UseVisualStyleBackColor = true;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(257, 282);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(134, 20);
+            this.label8.TabIndex = 16;
+            this.label8.Text = "Depreciation Style:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(489, 398);
+            this.ClientSize = new System.Drawing.Size(489, 430);
             this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -333,6 +370,9 @@ namespace DepreciationForm
         private System.Windows.Forms.TabPage TabSummary;
         private System.Windows.Forms.Label lblCalcValue;
         private System.Windows.Forms.Button BtnCalcInv;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.RadioButton RabDble;
+        private System.Windows.Forms.RadioButton RadStraight;
     }
 }
 

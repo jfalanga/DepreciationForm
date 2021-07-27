@@ -59,7 +59,14 @@ namespace DepreciationForm
 
         private void BtnAdd_Click(object sender, EventArgs e)
         {
-            DepreciationStraightLine dep = new DepreciationStraightLine();
+            DepreciationStraightLine dep;
+            if (RadStraight.Checked)
+            {
+                dep = new DepreciationStraightLine();
+            } else
+            {
+                dep = new DepreciationsDoubleDeclining();
+            }
             try
             {
                 

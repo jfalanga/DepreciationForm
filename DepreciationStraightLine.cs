@@ -20,6 +20,7 @@ namespace DepreciationForm
             set
             {
                 dateAddedToInventory = value;
+                Calc();
             }
             get
             {
@@ -37,6 +38,7 @@ namespace DepreciationForm
             set
             {
                 dateRemovedFromInventory = value;
+                Calc();
             }
         }
 
@@ -49,6 +51,7 @@ namespace DepreciationForm
             set
             {
                 endValue = value;
+                Calc();
             }
         }
 
@@ -57,6 +60,8 @@ namespace DepreciationForm
             set
             {
                 startValue = value;
+
+                Calc();
             }
             get
             {
@@ -73,6 +78,7 @@ namespace DepreciationForm
             set
             {
                 lifeTime = value;
+                Calc();
             }
         }
         

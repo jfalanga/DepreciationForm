@@ -69,11 +69,6 @@ namespace DepreciationForm
             }
             try
             {
-                
-                dep.DateAddedToInventory = DateAdded.Value;
-                dep.DateRemovedFromInventory = DateTakingAway.Value;
-                dep.StartValue = Decimal.Parse(TxtStarting.Text);
-
                 if (TxtLifetime.Text == "")
                 {
                     dep.LifeTime = 0;
@@ -82,15 +77,24 @@ namespace DepreciationForm
                 {
                     dep.LifeTime = Int32.Parse(TxtLifetime.Text);
                 }
+                dep.DateAddedToInventory = DateAdded.Value;
+                dep.DateRemovedFromInventory = DateTakingAway.Value;
+                dep.StartValue = Decimal.Parse(TxtStarting.Text);
+
                 dep.Title = TxtTitle.Text;
                 dep.EndValue = Decimal.Parse(TxtEnding.Text);
             } catch (FormatException)
             {
                 MessageBox.Show("There seems to be something wrong with the data for this entry. Are you sure you entered it right?", "Data Error");
+                return;
+            } catch (DivideByZeroException)
+            {
+                MessageBox.Show("There needs to be some number greater than 0 in the Life Time box (or, there's some other divide by 0 error", "Divide by 0 Error");
             } catch (Exception exp)
             {
 
                 MessageBox.Show("There seems to be a problem: " + exp.Message, "error");
+                return;
             }
             depreciations.Add(dep);
             LstInventory.DataSource = null;

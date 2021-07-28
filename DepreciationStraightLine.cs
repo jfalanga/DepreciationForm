@@ -107,7 +107,7 @@ namespace DepreciationForm
         {
             get
             {
-                decimal ix = EndValue - StartValue;
+                decimal ix = StartValue - EndValue;
                 decimal d = ix / LifeTime;
                 return d;
             }
@@ -130,9 +130,9 @@ namespace DepreciationForm
         public override string ToString()
         {
             string bean = Title;
-            bean += ". The sarting value is " + StartValue;
-            bean += " and the value at the end of it's Lifetime is " + EndValue;
-            bean += "(& that life time is: " + LifeTime + " years).";
+            bean += ". The sarting value is " + StartValue + '$';
+            bean += ", the value at the end of it's Lifetime is " + EndValue+ '$';
+            bean += " (& that life time is: " + LifeTime + " years).";
             return bean;
         }
     }

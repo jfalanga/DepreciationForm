@@ -121,5 +121,17 @@ namespace DepreciationForm
             LstInventory.DataSource = null;
             LstInventory.DataSource = depreciations;
         }
+
+        private void BtnCalcInv_Click(object sender, EventArgs e)
+        {
+            string bean;
+            decimal moneys=0;
+            foreach (DepreciationStraightLine item in depreciations)
+            {
+                moneys += item.SalvageValue;                
+            }
+            bean = "The present salvage value of the stock is: " + moneys + "$";
+            lblCalcValue.Text = bean;
+        }
     }
 }

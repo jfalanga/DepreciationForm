@@ -15,7 +15,7 @@ namespace DepreciationForm
 
         public override void Calc(DateTime timeDate)
         {
-            int years = DateAddedToInventory.Year - timeDate.Year;
+            int years = -(DateAddedToInventory.Year - timeDate.Year);
             decimal myMoneys = StartValue;
             for (int ix = 1; ix < years; ix++)
             {
